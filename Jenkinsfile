@@ -11,7 +11,7 @@ node('master')
 	sh 'mvn -Dtest=WorkingApplicationTests test'
         def folder = sh script: 'date +%F-%T', returnStdout: true
 	println "The folder name is ${folder}"
-	zip dir: '', zipfile: "${folder}.zip"
+	zip dir: '', glob: ' ', zipFile: "${folder}.zip"
 	println ('success')
 
 	}
