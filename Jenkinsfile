@@ -10,8 +10,8 @@ node('master')
 
 	sh 'mvn -Dtest=WorkingApplicationTests test'
         def folder = sh script: 'date +%F-%T', returnStdout: true
-	println "The folder name is ${folder}"
-	zip dir: '', glob: ' ', zipFile: "${folder}.zip"
+	println "The folder name is folder.trim()+'.'+'zip'"
+	sh "zip folder.trim()+'.'+'zip' ."
 	println ('success')
 
 	}
