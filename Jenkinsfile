@@ -20,6 +20,6 @@ node('master')
 	println (currentBuild.result = 'FAILURE')
 		  
          }
-
+	}
 	
 }
