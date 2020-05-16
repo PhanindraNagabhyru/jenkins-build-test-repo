@@ -15,10 +15,11 @@ node('master')
         println "${folder}"
 	 	sh "zip -r ${folder} ./*"*/
 	 }
-	catch {	
-	println ((sh 'mvn -Dtest=FailingApplicationTests test).status())
+	catch (error) {	
+		
+	println (currentBuild.result = 'FAILURE')
 		  
          }
 
-	}
+	
 }
