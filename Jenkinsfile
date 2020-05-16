@@ -15,7 +15,8 @@ node('master')
         println "${folder}"
 	 	sh "zip -r ${folder} ./*"*/
 	 }
-	catch (error) {	
+	catch (error e) {	
+		
 		
 	println (currentBuild.result = 'FAILURE')
 		  
