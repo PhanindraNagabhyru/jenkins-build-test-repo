@@ -4,7 +4,7 @@ node('master')
 
 	checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/PhanindraNagabhyru/jenkins-build-test-repo.git']]]
 	}
-
+	if (pass){
 	stage('maven pass test')
 	{
 
@@ -16,4 +16,9 @@ node('master')
 	println ('success')
 
 	}
+	}
+	else 
+	stage('maven fail test'){
+	   sh'mvn -Dtest=FailingApplicationTests test'
+		         }
 }
