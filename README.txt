@@ -1,7 +1,5 @@
 Failing test command
 
-
-
 mvn -Dtest=FailingApplicationTests test
 
 Passing test command
