@@ -9,11 +9,11 @@ node('master')
 	{
 
 	sh 'mvn -Dtest=WorkingApplicationTests test'
-        def out = sh script: 'date +%F-%T', returnStdout: true
+        /*def out = sh script: 'date +%F-%T', returnStdout: true
 	def folder = out.trim()+'.'+'zip'
         println "${folder}"
-		sh "zip -r ${folder} ./*"
-	println ('success')
+		sh "zip -r ${folder} ./*"*/
+	println ('failed')
 
 	}
 }
