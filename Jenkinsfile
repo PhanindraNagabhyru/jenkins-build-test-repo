@@ -17,6 +17,7 @@ node('master')
 	 
 	catchError(message: 'error')
 	 {
+	   failFast true	 
            println('failure')
          }
  
