@@ -7,17 +7,17 @@ node('master')
 
 	stage('maven fail test')
 	{
-	 def fail = 'mvn -Dtest=FailingApplicationTests test' 	
-         try {
-	       sh 'mvn -Dtest=FailingApplicationTests test'
+	 //def fail = 'mvn -Dtest=FailingApplicationTests test' 	
+         
+	 sh 'mvn -Dtest=FailingApplicationTests test -Dmaven.test.failure.ignore=true'
         /*def out = sh script: 'date +%F-%T', returnStdout: true
 	def folder = out.trim()+'.'+'zip'
         println "${folder}"
 	 	sh "zip -r ${folder} ./*"*/
-	 }
-	catchError(message: 'error build failure')
+	 
+	catchError(message: 'error')
 	 {
-           sh 'mvn -Dtest=FailingApplicationTests test'
+           println('failure')
          }
  
 	}
