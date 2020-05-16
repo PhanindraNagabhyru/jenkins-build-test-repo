@@ -12,7 +12,7 @@ node('master')
         def out = sh script: 'date +%F-%T', returnStdout: true
 	def folder = out.trim()+'.'+'zip'
         println "${folder}"
-		sh "zip ${folder} ${WORKSPACE}"
+		sh "zip ${folder} ${WORKSPACE}/"
 	println ('success')
 
 	}
