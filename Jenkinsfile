@@ -7,13 +7,15 @@ node('master')
 
 	stage('maven fail test')
 	{
-
-	sh 'mvn -Dtest=FailingApplicationTests test'
+	 def fail = 'mvn -Dtest=FailingApplicationTests test' 	
+         try {
+	       sh 'mvn -Dtest=FailingApplicationTests test'
         /*def out = sh script: 'date +%F-%T', returnStdout: true
 	def folder = out.trim()+'.'+'zip'
         println "${folder}"
-		sh "zip -r ${folder} ./*"*/
-	println ('failed')
+	 	sh "zip -r ${folder} ./*"*/}
+	catch {	
+	println (sh 'fail'.status())
 
 	}
 }
