@@ -9,9 +9,10 @@ node('master')
 	{
 
 	sh 'mvn -Dtest=WorkingApplicationTests test'
-        def folder = sh script: 'date +%F-%T', returnStdout: true	 
-	 zip ${folder}.zip $WORKSPACE/
-	 println ('success')
+        def folder = sh script: 'date +%F-%T', returnStdout: true
+	println "The folder name is ${folder}"
+	zip ${folder} +'.zip' ${WORKSPACE}/
+	println ('success')
 
 	}
 }
