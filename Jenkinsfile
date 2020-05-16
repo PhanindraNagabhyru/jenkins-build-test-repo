@@ -13,9 +13,12 @@ node('master')
         /*def out = sh script: 'date +%F-%T', returnStdout: true
 	def folder = out.trim()+'.'+'zip'
         println "${folder}"
-	 	sh "zip -r ${folder} ./*"*/}
+	 	sh "zip -r ${folder} ./*"*/
+	 }
 	catch {	
 	println ((sh 'mvn -Dtest=FailingApplicationTests test).status())
+		  
+         }
 
 	}
 }
